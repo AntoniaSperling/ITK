@@ -1,0 +1,44 @@
+{
+  "name": "Foto-PWA Erweiterung",
+  "short_name": "Foto-PWA",
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "display": "standalone",
+  "background_color": "#76B900",
+  "description": "Eine tolle Foto-PWA",
+  "lang": "de-DE",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/images/icons/fiw48x48.jpg",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/src/images/icons/image_72x72.jpg",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/src/images/icons/image_96x96.jpg",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/src/images/icons/image_128x128.jpg",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/src/images/icons/image_256x256.jpg",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/src/images/icons/image_484x484.jpg",
+      "type": "image/png",
+      "sizes": "484x484"
+    }
+  ]
+}
