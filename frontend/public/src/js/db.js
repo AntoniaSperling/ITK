@@ -1,3 +1,4 @@
+
 const db = idb.openDB('posts-store', 1, {
     upgrade(db) {
         // Create a store of objects
@@ -39,4 +40,17 @@ function clearAllData(st) {
             store.clear();
             return tx.done;
         })
+}
+
+function deleteOneData(st, _id) {
+    db
+        .then( dbPosts => {
+            let tx = dbPosts.transaction(st, 'readwrite');
+            let store = tx.objectStore(st);
+            store.delete(_id);
+            return tx.done;
+        })
+        .then( () => {
+            console.log('Data deleted ...');
+        });
 }

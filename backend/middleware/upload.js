@@ -14,18 +14,18 @@ const storage = new GridFsStorage({
     options: {
         sslKey: credentials,        // nur falls ein Zertifikat zur Autorisierung
         sslCert: credentials,       // für MongoDB Atlas verwendet wird
-        dbName: "htwinsta" },
+        dbName: "foto-pwa" },
     file: (req, file) => {
         const match = ["image/png", "image/jpeg"];
 
         if (match.indexOf(file.mimetype) === -1) {
             console.log('file.mimetype === -1')
-            return `${Date.now()}-jf-${file.originalname}`;
+            return `${Date.now()}-as-${file.originalname}`;
         }
         console.log('store');
         return {
             bucketName: 'posts',
-            filename: `${Date.now()}-jf-${file.originalname}`,
+            filename: `${Date.now()}-as-${file.originalname}`,
         };
     },
 });
