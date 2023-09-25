@@ -21,8 +21,6 @@ app.use('/delete', deleteRoute);
 
 // connect to mongoDB
 mongoose.connect(process.env.DB_CONNECTION, {
-    sslKey: credentials,
-    sslCert: credentials,
     dbName: process.env.DATABASE });
 
 const db = mongoose.connection;
@@ -39,4 +37,4 @@ app.listen(PORT, (error) => {
     } else {
         console.log(`server running on http://localhost:${PORT}`)
     }
-})
+});

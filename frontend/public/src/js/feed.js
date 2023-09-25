@@ -14,6 +14,39 @@ let file = null;
 let titleValue = '';
 let locationValue = '';
 let imageURI = '';
+let locationButton = document.querySelector('#location-btn');
+let locationLoader = document.querySelector('#location-loader');
+let fetchedLocation;
+
+locationButton.addEventListener('click', event => {
+  if(!('geolocation' in navigator)) {
+    return;
+  }
+
+  locationButton.style.display = 'none';
+  locationLoader.style.display = 'block';
+
+  navigator.geolocation.getCurrentPosition( position => {
+    locationButton.style.display = 'inline';
+    locationLoader.style.display = 'none';
+    fetchedLocation = { latitude: position.coords.latitude, longitude: position.coords.longitude };
+    console.log('current position: ', fetchedLocation);
+    locationInput.value = 'In Berlin';
+    document.querySelector('#manual-location').classList.add('is-focused');
+  }, err => {
+    console.log(err);
+    locationButton.style.display = 'inline';
+    locationLoader.style.display = 'none';
+    alert('Couldn\'t fetch location, please enter manually!');
+    fetchedLocation = null;
+  }, { timeout: 5000});
+});
+
+function initializeLocation() {
+  if(!('geolocation' in navigator)) {
+    locationButton.style.display = 'none';
+  }
+}
 
 function initializeMedia() {
   if(!('mediaDevices' in navigator)) {
@@ -49,12 +82,15 @@ function openCreatePostModal() {
     createPostArea.style.transform = 'translateY(0)';
   }, 1);
   initializeMedia();
+  initializeLocation();
 }
 
 function closeCreatePostModal() {
   imagePickerArea.style.display = 'none';
   videoPlayer.style.display = 'none';
   canvasElement.style.display = 'none';
+  locationButton.style.display = 'inline';
+  locationLoader.style.display = 'none';
   if(videoPlayer.srcObject) {
     videoPlayer.srcObject.getVideoTracks().forEach( track => track.stop());
   }

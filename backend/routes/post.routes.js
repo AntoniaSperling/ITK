@@ -25,7 +25,7 @@ const credentials = process.env.PATH_TO_PEM
 const connection = mongoose.createConnection(process.env.DB_CONNECTION, {
     sslKey: credentials,
     sslCert: credentials,
-    dbName: "htwinsta" });
+    dbName: "foto-pwa" });
 
 function getOnePost(id) {
     return new Promise( async(resolve, reject) => {
@@ -61,7 +61,7 @@ function getOnePost(id) {
 function getAllPosts() {
     return new Promise( async(resolve, reject) => {
         const sendAllPosts = [];
-        const allPosts = await Post.find();
+        const allPosts = await Post.find({});
         try {
             for(const post of allPosts) {
                 console.log('post', post)
@@ -71,7 +71,7 @@ function getAllPosts() {
             console.log('sendAllPosts', sendAllPosts)
             resolve(sendAllPosts)
         } catch {
-            reject(new Error("Posts do not exist!"));
+            reject(new Error("Images do not exist!"));
         }
     });
 }
@@ -100,7 +100,7 @@ router.get('/', async(req, res) => {
         .catch( () => {
             res.status(404);
             res.send({
-                error: "Post do not exist!"
+                error: "Images do not exist!"
             });
         })
 });
