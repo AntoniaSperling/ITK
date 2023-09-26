@@ -50,6 +50,9 @@ npm start
 
 Sie können das Backend über [Postman](https://www.postman.com) ohne Frontend nutzen. Sie müssen bei Postman http://localhost:3000/ eingeben und können dann die gewünschten Endpunkte ansprechen.
 
+![img_1.png](img_1.png)
+(Postman Screenshot)
+
 REST-API für Posts.
 
 POST = { title: String, location: String, image_id: String }
@@ -63,3 +66,19 @@ POST /posts
 DELETE /posts/:id
 
 ### Frontend
+
+Rufen Sie im Browser Ihrer Wahl http://localhost:8080/ auf. Dann sollten Sie folgendes sehen.
+
+![img.png](img.png)
+
+Über den Button mit dem '+' können Sie neue Beiträge hinzufügen. Diese werden dann in der Datenbank gespeichert.
+
+![img_2.png](img_2.png)
+
+Wenn Sie auf 'Location' klicken dann wird bei Ort Ihr Standort eingetragen.
+
+![img_3.png](img_3.png)
+
+Mit dem 'Benachrichtigungen ein' Button können Sie sich informieren lassen, so bald ein Neues Bild hochgeladen wurde.
+
+![img_4.png](img_4.png)

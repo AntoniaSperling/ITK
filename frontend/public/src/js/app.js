@@ -23,8 +23,8 @@ function displayConfirmNotification() {
             tag: 'confirm-notification',
             renotify: true,
             actions: [
-                { action: 'confirm', title: 'Ok', icon: '/src/images/icons/image_96x96.png' },
-                { action: 'cancel', title: 'Cancel', icon: '/src/images/icons/image_96x96.png' },
+                { action: 'confirm', title: 'Ok' },
+                { action: 'cancel', title: 'Cancel'},
             ]
         };
 
