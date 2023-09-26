@@ -4,19 +4,52 @@ const mongoose = require('mongoose');
 const Post = require('../models/posts');
 const upload = require('../middleware/upload');
 require('dotenv').config();
+const webpush = require('web-push');
 
-/* ----------------- POST ---------------------------- */
+const publicVapidKey = 'BGaBbfstZLdgW-p0Cu-1Y4dfUgbY8zWsASyv0ZuO6a7qYAgLgFxodsoUJ7ZsMfk0Ri46qSpNfaSq1smMhijKjzs';
+const privateVapidKey = '2hdkns6IryJFBD3emJn226QtnIhINmT8h1G73G4SmuA';
+const pushSubscription = {
+    endpoint: 'https://fcm.googleapis.com/fcm/send/cMdUtRW4H9o:APA91bG8p3o-Ta31e1yMrqdvonJCyf3xbPfIFtpS2UbX9PcJwkeNKoQjZhEAWo5nad7eR3NgRQR8__3wk591j7DKWJLGzwWgJYm_GgipU0gTvMRpWA6TpmCtrD9OCo1mB0jZQrTj5a_5',
+    keys: {
+        auth: 'fJRvyO_fnPXsYeDkMy_jAA',
+        p256dh: 'BDhH_TBG4l-PU3wJnT6wHqsPeYusbPqOiw7VvJvupXDC3JZOIIOiz2Ml8ZaZD9wJuGnXs9BFqINEzrFStsjkk6c',
+    }
+};
+
+function sendNotification() {
+    webpush.setVapidDetails('mailto:Antonia.Sperling@Student.HTW-Berlin.de', publicVapidKey, privateVapidKey);
+    const payload = JSON.stringify({
+        title: 'New Push Notification',
+        content: 'New data in database!',
+        openUrl: '/help'
+    });
+    webpush.sendNotification(pushSubscription,payload)
+        .catch(err => console.error(err));
+    console.log('push notification sent');
+    // res.status(201).json({ message: 'push notification sent'});
+}
+
 
 // POST one post
 router.post('/', upload.single('file'), async(req, res) => {
-    const newPost = new Post({
-        title: req.body.title,
-        location: req.body.location,
-        image_id: req.file.filename
-    })
-    await newPost.save();
-    res.send(newPost);
-});
+    // req.file is the `file` file
+    if (req.file === undefined) {
+        return res.send({
+            "message": "no file selected"
+        });
+    } else {
+        console.log('req.body', req.body);
+        console.log('req.file', req.file);
+        const newPost = new Post({
+            title: req.body.title,
+            location: req.body.location,
+            image_id: req.file.filename
+        })
+        await newPost.save();
+        sendNotification();
+        return res.send(newPost);
+    }
+})
 
 /* ----------------- GET ---------------------------- */
 
