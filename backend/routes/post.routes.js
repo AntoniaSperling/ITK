@@ -61,17 +61,17 @@ function getOnePost(id) {
 function getAllPosts() {
     return new Promise( async(resolve, reject) => {
         const sendAllPosts = [];
-        const allPosts = await Post.find({});
+        const allPosts = await Post.find();
         try {
             for(const post of allPosts) {
-                console.log('post', post)
+                // console.log('post', post)
                 const onePost = await getOnePost(post._id);
                 sendAllPosts.push(onePost);
             }
-            console.log('sendAllPosts', sendAllPosts)
+            // console.log('sendAllPosts', sendAllPosts)
             resolve(sendAllPosts)
         } catch {
-            reject(new Error("Images do not exist!"));
+            reject(new Error("Posts do not exist!"));
         }
     });
 }
@@ -93,6 +93,7 @@ router.get('/:id', async(req, res) => {
 
 // GET all posts
 router.get('/', async(req, res) => {
+
     getAllPosts()
         .then( (posts) => {
             res.send(posts);
@@ -100,7 +101,7 @@ router.get('/', async(req, res) => {
         .catch( () => {
             res.status(404);
             res.send({
-                error: "Images do not exist!"
+                error: "Post do not exist!"
             });
         })
 });

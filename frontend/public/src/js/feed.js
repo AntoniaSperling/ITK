@@ -274,10 +274,34 @@ form.addEventListener('submit', event => {
 
   titleValue = titleInput.value;
   locationValue = locationInput.value;
+  console.log('titleInput', titleValue)
+  console.log('locationInput', locationValue)
+  console.log('file', file)
 
-  sendDataToBackend();
+  if('serviceWorker' in navigator && 'SyncManager' in window) {
+    navigator.serviceWorker.ready
+        .then( sw => {
+          let post = {
+            id: new Date().toISOString(),
+            title: titleValue,
+            location: locationValue,
+            image_id: file
+          };
+
+          writeData('sync-posts', post)
+              .then( () => {
+                return sw.sync.register('sync-new-post');
+              })
+              .then( () => {
+                let snackbarContainer = new MaterialSnackbar(document.querySelector('#confirmation-toast'));
+                let data = { message: 'Eingaben zum Synchronisieren gespeichert!', timeout: 2000};
+                snackbarContainer.showSnackbar(data);
+              });
+        });
+  } else {
+    sendDataToBackend();
+  }
 });
-
 
 function updateUI(data) {
   for(let card of data)
