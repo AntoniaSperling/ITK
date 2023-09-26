@@ -2,15 +2,15 @@ const express = require('express');
 const webpush = require('web-push');
 const router = express.Router();
 
-const publicVapidKey = 'BLp3BGxSyYIv3rfy07KC-saKtiCVI073LWw5Eh24gHoRGV7hhT1kVwo6gnhjrUszZguRy8b9lGroKNRy9iCUcCI';
-const privateVapidKey = '9HPDFyx8Xd3lu2ctDHGdf3TNSjDUU2nsAuwwLe2d_6A';
+const publicVapidKey = 'BAcQobNWfSlPAmSJ_zP83DmWZPWm3CAgogulhEkmqcGa_dlMvlWp_bmYnBmip63bkytxy-YKOJT2fgnuWrHj_vo';
+const privateVapidKey = 'UJHdouxtOPEnVwYe0Fco1WkUa6bTA7fpspK_Oj-g3E4';
 
 router.post('/', async(req, res) => {
     const subscription = req.body;
     console.log('subscription', subscription);
     res.status(201).json({ message: 'subscription received'});
 
-    webpush.setVapidDetails('mailto:freiheit@htw-berlin.de', publicVapidKey, privateVapidKey);
+    webpush.setVapidDetails('mailto:Antonia.Sperling@Student.HTW-Berlin.de', publicVapidKey, privateVapidKey);
 });
 
 module.exports = router;

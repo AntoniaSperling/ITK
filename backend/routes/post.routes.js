@@ -6,13 +6,13 @@ const upload = require('../middleware/upload');
 require('dotenv').config();
 const webpush = require('web-push');
 
-const publicVapidKey = 'BGaBbfstZLdgW-p0Cu-1Y4dfUgbY8zWsASyv0ZuO6a7qYAgLgFxodsoUJ7ZsMfk0Ri46qSpNfaSq1smMhijKjzs';
-const privateVapidKey = '2hdkns6IryJFBD3emJn226QtnIhINmT8h1G73G4SmuA';
+const publicVapidKey = 'BAcQobNWfSlPAmSJ_zP83DmWZPWm3CAgogulhEkmqcGa_dlMvlWp_bmYnBmip63bkytxy-YKOJT2fgnuWrHj_vo';
+const privateVapidKey = 'UJHdouxtOPEnVwYe0Fco1WkUa6bTA7fpspK_Oj-g3E4';
 const pushSubscription = {
-    endpoint: 'https://fcm.googleapis.com/fcm/send/cMdUtRW4H9o:APA91bG8p3o-Ta31e1yMrqdvonJCyf3xbPfIFtpS2UbX9PcJwkeNKoQjZhEAWo5nad7eR3NgRQR8__3wk591j7DKWJLGzwWgJYm_GgipU0gTvMRpWA6TpmCtrD9OCo1mB0jZQrTj5a_5',
+    endpoint: 'https://fcm.googleapis.com/fcm/send/eUr0tpolgiY:APA91bFfPBBCN2MqFfyfIywr3uP2ftmg1xdgQPSu8wNVDjCEnKPlKhh1JlpEkpRjS73rLnbhixT5_uueDE53J2r-3vWE-5D8APSbDVOQunXdRbM_wYt8wxCz9B3ao1EeZMTqatmMByL4',
     keys: {
-        auth: 'fJRvyO_fnPXsYeDkMy_jAA',
-        p256dh: 'BDhH_TBG4l-PU3wJnT6wHqsPeYusbPqOiw7VvJvupXDC3JZOIIOiz2Ml8ZaZD9wJuGnXs9BFqINEzrFStsjkk6c',
+        p256dh: 'BLq-_PeqkKMiWq4oBMV32LftGGIrNZ2nJLJVVrMGCK_I6pvV11I84eCitpe1Hf-M3njiKjz_Sa0H4ke7kEdyK8E',
+        auth: 'qWnO3nvCJG7DChnPxteZEA'
     }
 };
 
