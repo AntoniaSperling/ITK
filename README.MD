@@ -2,8 +2,6 @@
 
 Dieses Projekt ist eine progessive Web Application, welche Bilder in einer Datenbank speichert. Man kann eine Erweiterung für die Web-App installieren und sie auch offline nutzen.
 
-
-
 ## Download 
 
 Um die Anwendung nutzen zu können, ist es zunächst notwendig den Code über github herunterzuladen.
@@ -14,7 +12,7 @@ Nach dem Sie den Ordner entpackt haben, durch Rechtsklick 'Ordner entpacken', ö
 ## Installation
 
 Um unsere Anwendung nutzen zu können, muss folgendes installiert werden. Zum einen ist zwingend notwendig, dass [Node.js](https://nodejs.org/en/) vorhanden ist. Des weitern wird eine Datenbank
-benötig. In diesem Projekt wird eine [MongoDB](https://www.mongodb.com/) verwendet.
+benötig. In diesem Projekt wird eine [MongoDB](https://www.mongodb.com/) verwendet. Ihre Datenbankanbindung müssen Sie in einer .env Datei konfigurieren.
 Am besten öffnen Sie das Projekt in der Entwicklungsumgebung Ihrer Wahl. Dann gehen Sie in einmal in den Ordner backend und führen im Terminal folgenden Befehl aus
 
 ```
@@ -42,3 +40,20 @@ Das Frontend wird in einem extra Terminal im Ordner 'frontend' mit dem nachfolge
 ```
 npm start
 ```
+
+## Nutzung der Anwendung
+
+### Backend
+
+Sie können das Backend über [Postman](https://www.postman.com) ohne Frontend nutzen. Sie müssen bei Postman (http://localhost:3000/) eingeben und können dann die gewünschten Endpunkte ansprechen.
+
+REST-API für Posts.
+
+POST = { title: String, location: String, image_id: String }
+
+GET /posts
+GET /posts/:id
+POST /posts
+DELETE /posts/:id
+
+### Frontend
