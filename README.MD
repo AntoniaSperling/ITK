@@ -1,53 +1,44 @@
-# Progressive Web Apps - Aktuelle Trends der IKT 2022
+# Progressive Web Apps - Aktuelle Trends der IKT 2023
 
-Dieses Projekt enthält das Grundgerüst einer Webanwendung. Auf diesem Grundgerüst bauen wir auf und fügen sukzessive *progressive* Funktionalitäten hinzu, so dass am Ende eine *Progressive Web Application* entsteht. 
+Dieses Projekt ist eine progessive Web Application, welche Bilder in einer Datenbank speichert. Man kann eine Erweiterung für die Web-App installieren und sie auch offline nutzen.
+
+
+
+## Download 
+
+Um die Anwendung nutzen zu können, ist es zunächst notwendig den Code über github herunterzuladen.
+
+Um das Paket herunterzuladen, klicken Sie auf die grüne Schaltfläche auf der '<> Code' steht und drücken Sie danach auf das 'Download ZIP' Feld, um die Datei auf ihren Rechner herunterzuladen.
+Nach dem Sie den Ordner entpackt haben, durch Rechtsklick 'Ordner entpacken', öffnen Sie das Terminal und navigieren Sie sich zu dem entpackten Ordner.
 
 ## Installation
 
-- Zum Ausführen des Projektes wird [Node.js](https://nodejs.org) verendet. Sie müssen es auf Ihren Rechner installieren. 
+Um unsere Anwendung nutzen zu können, muss folgendes installiert werden. Zum einen ist zwingend notwendig, dass [Node.js](https://nodejs.org/en/) vorhanden ist. Des weitern wird eine Datenbank
+benötig. In diesem Projekt wird eine [MongoDB](https://www.mongodb.com/) verwendet.
+Am besten öffnen Sie das Projekt in der Entwicklungsumgebung Ihrer Wahl. Dann gehen Sie in einmal in den Ordner backend und führen im Terminal folgenden Befehl aus
 
-- In der Wahl Ihrer IDE sind Sie völlig frei. Empfehlungen finden Sie unter [https://freiheit.f4.htw-berlin.de/ikt/tools/#integrated-development-environment-ide](https://freiheit.f4.htw-berlin.de/ikt/tools/#integrated-development-environment-ide)
+```
+npm install
+```
+Den gleichen Befehl führen Sie auch im frontend Ordner aus. Dann sind alle benötigenden Module und Abhängigkeiten bei Ihnen installiert.
 
-- Zum Starten des Projektes wechseln Sie im Terminal (Terminal Ihres Rechners oder das Terminal in der IDE) in den Projektordner (`cd IKT-PWA-01`) und führen dort 
+## Verbindung zur Datenbank
+MongoDB (Cloud Atlas)
 
-	`npm install` 
+.env-Datei erstellen. Beispiel:
 
-	aus (es genügt auch `npm i`). Damit werden alle erforderlichen Abhängigkeiten installiert. Es entsteht der `node_modules`-Ordner. 
+DB_CONNECTION = mongodb+srv://ikt-pwa.0elr1ih.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority 
+DB_NAME = foto-pwa
+COLLECTION = posts
+PORT = 3000
 
-- Nach erfolgreicher Installation der Abhängigkeiten, geben Sie  
+## Start der Anwendung
 
-	`npm start` 
-
-	ein, um Ihr Projekt auszuführen (Es wird der `http-server` mit der Option `-c-1` gestartet. Diese Option disabled Caching). Klicken Sie danach auf [localhost:8080](http://localhost:8080) oder geben Sie die URL direkt in Ihren Browser ein.
-
-- Sollten Sie Änderungen an der IMplementierung vornehmen und diese ausprobieren wollen, müssen Sie den Server zunächst wieder stoppen:
-
-	`Ctrl-C`
-
-	und geben dann erneut 
-
-	`npm start` 
-
-	ein. 
-
-## Anpassungen
-
-Wir verwenden [Material Design Lite](https://getmdl.io/) für das Design unserer Anwendung. Sie können natürlich auch andere CSS-Frameworks verwenden. Sollte Ihnen die aktuelle Farbkombination aus `blue-grey` und `red` nicht zusagen, können Sie in den `index.html`-Datein (im `public`- und im `public/help`-Ordner auch eine andere Kombination auswählen (siehe
-
-`href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css"`
-
-Andere Farbkombinationen finden Sie [hier](https://getmdl.io/customize/#cdn-code). Es genügt auch, die entsprechenden Farben in den Dateinamen einzutragen 
-
-`material.{primary}-{accent}.min.css` 
-
-(z.B. `material.indigo-pink.min.css`).
-
---
-
-Sie können natürlich auch ein anderes Bild als das HTW-Bild einbinden. Beachten Sie dabei nur, dass wir mithilfe responsiven Verhaltens drei verschiedene Bilder davon benötigen, idealerweise mit den Pixel-Maßen `1200 x 457` (`*-lg.jpg`), `900 x 343` (`*.jpg`) und `480 x 183` (`*-sm.jpg`). Siehe dann die `public/index.html`.
-
---
-
-Binden Sie ruhig Ihr eigenes `favicon.ico` in den Projektordner ein. Erstellen können Sie sich ein solches `favicon` z.B. [hier](https://favicon.io/) oder [hier](https://www.ionos.de/tools/favicon-generator). Macht Spaß und gibt allen Ihren Webanwendungen eine persönliche Note ;-).
-
- 
+Um das Backend zu starten, muss man im Ordner 'backend' den folgenden Befehl in einem Terminal ausführen 
+```
+npm run watch
+```
+Das Frontend wird in einem extra Terminal im Ordner 'frontend' mit dem nachfolgenden Befehl gestartet
+```
+npm start
+```
