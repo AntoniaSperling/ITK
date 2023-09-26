@@ -4,6 +4,7 @@ const postsRoutes = require('./routes/post.routes')
 const uploadRoutes = require('./routes/upload.routes');
 const downloadRoute = require('./routes/download.routes');
 const deleteRoute = require('./routes/delete.routes');
+const subscriptionRoute = require('./routes/subscription.routes');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -18,6 +19,7 @@ app.use('/posts', postsRoutes);
 app.use('/upload', uploadRoutes);
 app.use('/download', downloadRoute);
 app.use('/delete', deleteRoute);
+app.use('/subscription', subscriptionRoute);
 
 // connect to mongoDB
 mongoose.connect(process.env.DB_CONNECTION, {
