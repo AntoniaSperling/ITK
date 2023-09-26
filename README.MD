@@ -45,7 +45,7 @@ npm start
 
 ### Backend
 
-Sie können das Backend über [Postman](https://www.postman.com) ohne Frontend nutzen. Sie müssen bei Postman (http://localhost:3000/) eingeben und können dann die gewünschten Endpunkte ansprechen.
+Sie können das Backend über [Postman](https://www.postman.com) ohne Frontend nutzen. Sie müssen bei Postman http://localhost:3000/ eingeben und können dann die gewünschten Endpunkte ansprechen.
 
 REST-API für Posts.
 
