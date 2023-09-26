@@ -26,8 +26,11 @@ MongoDB (Cloud Atlas)
 .env-Datei erstellen. Beispiel:
 
 DB_CONNECTION = mongodb+srv://ikt-pwa.0elr1ih.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority 
+
 DB_NAME = foto-pwa
+
 COLLECTION = posts
+
 PORT = 3000
 
 ## Start der Anwendung
@@ -52,8 +55,11 @@ REST-API für Posts.
 POST = { title: String, location: String, image_id: String }
 
 GET /posts
+
 GET /posts/:id
+
 POST /posts
+
 DELETE /posts/:id
 
 ### Frontend
